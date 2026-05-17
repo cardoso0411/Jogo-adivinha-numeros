@@ -5,6 +5,20 @@ const STORAGE_RECORDE = "jogo_adivinhacao_recorde";
 const STORAGE_TEMA = "jogo_adivinhacao_tema";
 const HISTORICO_MAX = 8;
 
+// ===== Pré-carregamento de áudios =====
+const somAcerto = new Audio("acerto.mp3");
+const somErro = new Audio("erro.mp3");
+somAcerto.preload = "auto";
+somErro.preload = "auto";
+
+const tocar = (audio) => {
+    try {
+        audio.currentTime = 0;
+        const p = audio.play();
+        if (p && typeof p.catch === "function") p.catch(() => {});
+    } catch (_) { /* ignora */ }
+};
+
 // ===== Objeto Jogo =====
 const Jogo = {
     el: {
