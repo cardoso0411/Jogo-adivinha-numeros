@@ -1,28 +1,35 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Jogo de Adivinhação</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Number Guessing Game</title>
+    <link rel="icon" href="img/logo.png" type="image/png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>🎯 Jogo de Adivinhação</h1>
+    <h1>🎯 Number Guessing Game</h1>
     <div class="container fade-in" id="jogo">
         <label for="dificuldade">Escolha a dificuldade:</label>
-        <select id="dificuldade">
+        <select id="dificuldade" aria-label="Selecionar dificuldade">
             <option value="10">Fácil (1-10)</option>
             <option value="50">Médio (1-50)</option>
             <option value="100">Difícil (1-100)</option>
         </select>
         <br><br>
-        <input type="number" id="palpite" placeholder="Digite seu palpite" />
-        <button id="btnJogar" type="button">Jogar</button>
-        <p id="mensagem" aria-live="polite"></p>
-        <p id="pontuacao">Pontuação: 0</p>
-        <button id="btnModo" type="button">🌙 Alternar Modo</button>
-        <audio id="musica" src="musica.mp3" loop></audio>
-        <button id="btnMusica" type="button">🎵 Tocar / Pausar Música</button>
+        <input type="number" id="palpite" placeholder="Digite seu palpite" aria-label="Seu palpite" />
+        <button id="btnJogar" type="button" aria-label="Enviar palpite">Jogar</button>
+        <button id="btnReiniciar" type="button" aria-label="Reiniciar partida">🔄 Reiniciar</button>
+        <p id="mensagem" role="status" aria-live="polite"></p>
+        <p id="pontuacao" role="status" aria-live="polite">Pontuação: 0</p>
+        <p id="recorde">Recorde: 0</p>
+        <div class="historico-box">
+            <strong>Histórico:</strong>
+            <ul id="historico" aria-label="Histórico de palpites"></ul>
+        </div>
+        <button id="btnModo" type="button" aria-label="Alternar modo claro/escuro">🌙 Alternar Modo</button>
+        <audio id="musica" src="musica.mp3" loop preload="auto"></audio>
+        <button id="btnMusica" type="button" aria-label="Tocar ou pausar música">🎵 Tocar / Pausar Música</button>
     </div>
     <script src="script.js"></script>
 </body>
